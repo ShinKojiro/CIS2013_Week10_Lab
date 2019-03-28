@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class person {
+class Person {
 
     private:
 
@@ -13,6 +13,25 @@ class person {
         bool is_alive;
 
     public:
+
+        Person(){
+            setName("unknown");
+            setGender("M");
+            setRace("ugly");
+            setAge(age);
+        }
+
+        Person(string n, string g, string r){
+            setName(n);
+            setGender(g);
+            setRace(r);
+            setAge(age);
+
+        }
+
+        string getStats(){
+            return "Name: " + name + "\n" + "Race: " + race + "\n" + "Gender: " + gender;
+        }
 
         string getName(){
             return name;
@@ -43,7 +62,12 @@ class person {
         }
 
         void setAge(int a){
-            age = a;
+            if((0 > a) || (150 < a)){
+                age = 25;
+            } else{
+                age = a;
+            }
+            
         }
 
         void setRace(string r){
